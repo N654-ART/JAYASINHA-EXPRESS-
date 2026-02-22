@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JAYSINHA EXPRESS - Your trusted online store for quality products at great prices">
+    <title>JAYSINHA EXPRESS - Quality Products Store</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e94560;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem;
+        }
+        
+        nav a:hover {
+            color: #e94560;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: #16213e;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #e94560;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Home Section */
+        #home {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            padding: 6rem 20px;
+            border-radius: 10px;
+            margin: 2rem auto;
+        }
+        
+        #home p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        /* Products Section */
+        #products {
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: #e94560;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            background: #16213e;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background: #e94560;
+        }
+        
+        /* About Section */
+        #about {
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .mission-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid #e94560;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #e94560;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-btn:hover {
+            background: #c73e54;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            color: #e94560;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #e94560;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #e94560;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+            
+            #home {
+                padding: 3rem 20px;
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-2 {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">JAYSINHA EXPRESS</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cart">Cart (0)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Home Section -->
+        <section id="home">
+            <h1>Welcome to JAYSINHA EXPRESS</h1>
+            <p>Your one-stop destination for quality products at unbeatable prices. We bring you carefully curated items that combine style, functionality, and value. Shop with confidence and experience excellence in every purchase.</p>
+            <a href="#products" class="cta-button">Shop Now</a>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products">
+            <h2>Our Products</h2>
+            <p class="text-center" style="color: #666; margin-bottom: 2rem;">Discover our latest collection of premium products</p>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/400x300/16213e/ffffff?text=Wireless+Headphones" alt="Premium Wireless Headphones" class="product-image">
+                    <div class="product-info">
+                        <h3>Premium Wireless Headphones</h3>
+                        <p class="product-price">$89.99</p>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">High-quality sound with noise cancellation</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/400x300/e94560/ffffff?text=Smart+Watch" alt="Smart Fitness Watch" class="product-image">
+                    <div class="product-info">
+                        <h3>Smart Fitness Watch</h3>
+                        <p class="product-price">$149.99</p>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Track your health and stay connected</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/400x300/1a1a2e/ffffff?text=Leather+Backpack" alt="Genuine Leather Backpack" class="product-image">
+                    <div class="product-info">
+                        <h3>Genuine Leather Backpack</h3>
+                        <p class="product-price">$129.99</p>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Durable and stylish for everyday use</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/400x300/0f3460/ffffff?text=Portable+Speaker" alt="Bluetooth Portable Speaker" class="product-image">
+                    <div class="product-info">
+                        <h3>Bluetooth Portable Speaker</h3>
+                        <p class="product-price">$59.99</p>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">360° sound with 20-hour battery life</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <!-- Product 5 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/400x300/533483/ffffff?text=Running+Shoes" alt="Professional Running Shoes" class="product-image">
+                    <div class="product-info">
+                        <h3>Professional Running Shoes</h3>
+                        <p class="product-price">$119.99</p>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Maximum comfort and performance</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <!-- Product 6 -->
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/400x300/e94560/ffffff?text=Phone+Case" alt="Premium Phone Case" class="product-image">
+                    <div class="product-info">
+                        <h3>Premium Protective Phone Case</h3>
+                        <p class="product-price">$24.99</p>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Military-grade drop protection</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About JAYSINHA EXPRESS</h2>
+            <div class="about-content">
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.8;">
+                    Founded with a vision to provide exceptional quality products at accessible prices, JAYSINHA EXPRESS has grown from a small local business to a trusted online marketplace. We believe that everyone deserves access to well-crafted, reliable products that enhance daily life.
+                </p>
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-top: 1rem;">
+                    Our team carefully selects each item in our catalog, ensuring it meets our strict standards for quality, durability, and design. We work directly with manufacturers to bring you the best prices without compromising on excellence.
+                </p>
+                
+                <div class="mission-box">
+                    <h3>Our Mission</h3>
+                    <p style="font-style: italic; color: #666; font-size: 1.1rem;">
+                        "To deliver happiness through quality products, exceptional service, and an unparalleled shopping experience that keeps our customers coming back for more."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p class="text-center" style="color: #666; margin-bottom: 2rem;">We'd love to hear from you! Send us a message and we'll respond as soon as possible.</p>
+            
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="How can we help you today?" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JAYSINHA EXPRESS</h3>
+                <p style="color: #aaa; line-height: 1.6;">
+                    Your trusted partner for quality products. We deliver excellence to your doorstep.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Twitter">TW</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="LinkedIn">LI</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p style="color: #aaa; margin-bottom: 0.5rem;">📧 support@jaysinhaexpress.com</p>
+                <p style="color: #aaa; margin-bottom: 0.5rem;">📱 +1 (555) 123-4567</p>
+                <p style="color: #aaa;">📍 123 Commerce Street, Business City</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2026 JAYSINHA EXPRESS. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
